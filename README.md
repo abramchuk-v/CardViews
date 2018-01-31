@@ -35,44 +35,45 @@ cardView.reloadData()
 2. Add DataSource and Delegate method.
 ```swift
 extension ViewController: SwipeCardViewDelegate {
-func nearOfEnd() {
-obtainNewData()
+    func nearOfEnd() {
+        obtainNewData()
+    }
+
+    func swipedLeft(_ object: Any) {
+        //left action
+    }
+
+    func swipedRight(_ object: Any) {
+        //right action
+    }
+
+    func cardTapped(_ object: Any) {
+        //tap
+    }
+
+    func reachedEnd() {
+        //end
+    }
 }
 
-func swipedLeft(_ object: Any) {
-//left action
-}
-
-func swipedRight(_ object: Any) {
-//right action
-}
-
-func cardTapped(_ object: Any) {
-//tap
-}
-
-func reachedEnd() {
-//end
-}
-}
 extension ViewController: SwipeCardViewDataSource {
-func createViewForOverlay(index: Int, swipe: SwipeMode, with frame: CGRect) -> UIView {
-let label = UILabel()
-label.frame.size = CGSize(width: 100, height: 100)
-label.center = CGPoint(x: frame.width / 2, y: frame.height / 2)
-label.text = swipe == .right ? "right" : "left"
-return label
-}
+    func createViewForOverlay(index: Int, swipe: SwipeMode, with frame: CGRect) -> UIView {
+        let label = UILabel()
+        label.frame.size = CGSize(width: 100, height: 100)
+        label.center = CGPoint(x: frame.width / 2, y: frame.height / 2)
+        label.text = swipe == .right ? "right" : "left"
+        return label
+    }
 
-func rowCount() -> Int {
-return dataArray.count
-}
+    func rowCount() -> Int {
+        return dataArray.count
+    }
 
-func createViewForCard(index: Int, with frame: CGRect) -> UIView {
-let cell = ProblemCell(frame: frame)
-cell.element = dataArray[index]
-return cell
-}
+    func createViewForCard(index: Int, with frame: CGRect) -> UIView {
+        let cell = ProblemCell(frame: frame)
+        cell.element = dataArray[index]
+        return cell
+    }
 }
 ```
 
