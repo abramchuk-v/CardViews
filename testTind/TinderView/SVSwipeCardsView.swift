@@ -13,7 +13,7 @@ public enum SwipeMode {
     case right
 }
 
-protocol SwipeCardViewDelegate: class {
+public protocol SwipeCardViewDelegate: class {
     func swipedLeft(_ object: Any)
     func swipedRight(_ object: Any)
     func cardTapped(_ object: Any)
@@ -22,7 +22,7 @@ protocol SwipeCardViewDelegate: class {
     func nearOfEnd()
 }
 
-protocol SwipeCardViewDataSource: class {
+public protocol SwipeCardViewDataSource: class {
     func createViewForCard(index: Int, with frame: CGRect) -> UIView
     func rowCount() -> Int
     func createViewForOverlay(index: Int, swipe: SwipeMode, with frame: CGRect) -> UIView
@@ -30,8 +30,8 @@ protocol SwipeCardViewDataSource: class {
 
 
 public class SwipeCardsView: UIView {
-    weak var dataSource: SwipeCardViewDataSource?
-    weak var delegate: SwipeCardViewDelegate?
+    public weak var dataSource: SwipeCardViewDataSource?
+    public weak var delegate: SwipeCardViewDelegate?
     
     /** Count of visible views.*/
     var bufferSize: Int = 3
