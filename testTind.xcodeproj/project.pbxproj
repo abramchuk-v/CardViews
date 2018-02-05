@@ -11,6 +11,7 @@
 		048541B120211A44008E6CCA /* SVSwipeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048541B020211A44008E6CCA /* SVSwipeCardsView.swift */; };
 		048541B320211A4F008E6CCA /* SVSwipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048541B220211A4F008E6CCA /* SVSwipeCard.swift */; };
 		048955372020DBEA00D9D1A5 /* ProblemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048955362020DBEA00D9D1A5 /* ProblemCell.swift */; };
+		04CD3CE1202614D0006B0127 /* ImageAnimateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD3CE0202614D0006B0127 /* ImageAnimateDelegate.swift */; };
 		0AFE964620108E8A00198B51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE964520108E8A00198B51 /* AppDelegate.swift */; };
 		0AFE964820108E8A00198B51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE964720108E8A00198B51 /* ViewController.swift */; };
 		0AFE964D20108E8A00198B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE964C20108E8A00198B51 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		048541B020211A44008E6CCA /* SVSwipeCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVSwipeCardsView.swift; sourceTree = "<group>"; };
 		048541B220211A4F008E6CCA /* SVSwipeCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVSwipeCard.swift; sourceTree = "<group>"; };
 		048955362020DBEA00D9D1A5 /* ProblemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemCell.swift; sourceTree = "<group>"; };
+		04CD3CE0202614D0006B0127 /* ImageAnimateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnimateDelegate.swift; sourceTree = "<group>"; };
 		0AFE964220108E8A00198B51 /* testTind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testTind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AFE964520108E8A00198B51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AFE964720108E8A00198B51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +43,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04CD3CDF20261490006B0127 /* ProblemCell */ = {
+			isa = PBXGroup;
+			children = (
+				045A4A132021CC7E00D08C00 /* PageLayout.swift */,
+				048955362020DBEA00D9D1A5 /* ProblemCell.swift */,
+				04CD3CE0202614D0006B0127 /* ImageAnimateDelegate.swift */,
+			);
+			path = ProblemCell;
+			sourceTree = "<group>";
+		};
 		0AFE963920108E8A00198B51 = {
 			isa = PBXGroup;
 			children = (
@@ -60,12 +72,11 @@
 		0AFE964420108E8A00198B51 /* testTind */ = {
 			isa = PBXGroup;
 			children = (
+				04CD3CDF20261490006B0127 /* ProblemCell */,
 				0AFE965820108F6000198B51 /* TinderView */,
 				0AFE965720108E9800198B51 /* SupportingFiles */,
 				0AFE964720108E8A00198B51 /* ViewController.swift */,
-				045A4A132021CC7E00D08C00 /* PageLayout.swift */,
 				0AFE965120108E8A00198B51 /* Info.plist */,
-				048955362020DBEA00D9D1A5 /* ProblemCell.swift */,
 			);
 			path = testTind;
 			sourceTree = "<group>";
@@ -163,6 +174,7 @@
 				045A4A142021CC7E00D08C00 /* PageLayout.swift in Sources */,
 				048955372020DBEA00D9D1A5 /* ProblemCell.swift in Sources */,
 				048541B120211A44008E6CCA /* SVSwipeCardsView.swift in Sources */,
+				04CD3CE1202614D0006B0127 /* ImageAnimateDelegate.swift in Sources */,
 				048541B320211A4F008E6CCA /* SVSwipeCard.swift in Sources */,
 				0AFE964820108E8A00198B51 /* ViewController.swift in Sources */,
 				0AFE964620108E8A00198B51 /* AppDelegate.swift in Sources */,

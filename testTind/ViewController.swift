@@ -8,9 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource {
+class ViewController: UIViewController {
     
     private var cardView: SwipeCardsView!
+    private var animatableImageDelegate: ImageAnimateDelegate?
+    
+    private var pageControl: UIPageControl?
+    
     var images: [UIImage] = [
                              UIImage(named: "\(0)")!,
                              UIImage(named: "\(1)")!,
@@ -35,13 +39,13 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         
         self.view.backgroundColor = .white
         
-        let frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        let frame = CGRect(x: 0, y: 20, width: self.view.frame.width, height: self.view.frame.height - 40)
         cardView = SwipeCardsView(frame: frame)
-        cardView.translatesAutoresizingMaskIntoConstraints = false
+        cardView.bufferSize = 1
         cardView.delegate = self
         cardView.dataSource = self
-        self.view.addSubview(cardView)
         
+        self.view.addSubview(cardView)
         cardView.autoresizingMask = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleHeight, .flexibleWidth]
         
         cardView.reloadData()
@@ -98,23 +102,48 @@ extension ViewController: SwipeCardViewDataSource {
     }
     
     func createViewForCard(index: Int, with frame: CGRect) -> UIView {
-
         let cell = ProblemCell(frame: CGRect(x: 30, y: 20, width: frame.width - 60, height: frame.height - 40))
-//        cell.imageView.image = images[index]
-        cell.label.text = "\(index)"
+        cell.textView.text = "\(index)"
         cell.collectionView.dataSource = self
-        
+        cell.collectionView.delegate = self
+        pageControl = cell.pageControl
+        animatableImageDelegate = cell
         return cell
     }
     
+}
+
+
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        pageControl?.numberOfPages = images1.count
         return images1.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ident", for: indexPath) as! CustomCell
         cell.imageView.image = images1[indexPath.row]
+        cell.animateDelegate = animatableImageDelegate
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        pageControl?.currentPage = indexPath.row
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.frame.size
+    }
 }
+
+//extension ViewController: ImageAnimateDelegate {
+//    func prepareImageIncreasing() {
+//        <#code#>
+//    }
+//
+//    func prepareImageReducing() {
+//        <#code#>
+//    }
+//}
+
 

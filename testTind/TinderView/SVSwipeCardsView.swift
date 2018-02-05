@@ -34,12 +34,21 @@ public class SwipeCardsView: UIView {
     public weak var delegate: SwipeCardViewDelegate?
     
     /** Count of visible views.*/
-    var bufferSize: Int = 3
+    var bufferSize: Int = 3 {
+        didSet {
+            if bufferSize == 1 {
+                isAppearAnimatable = true
+            }
+        }
+    }
     
     /** Minimal number of elements when update. Must be bigger than *bufferSize* Default 4.*/
     var updateWhenCountElements = 4
     
-    var currentNumber: Int = 0
+    /** Current number of data element.*/
+    private var currentNumber: Int = 0
+    
+    private var isAppearAnimatable = false
     
     fileprivate var loadedCards = [SwipeCard]()
     fileprivate var cardsCount: Int? {
@@ -58,12 +67,9 @@ public class SwipeCardsView: UIView {
     
     
     /** Reload card view.*/
-    
     public func reloadData() {
-        
         self.isUserInteractionEnabled = true
         guard let cardsCount = cardsCount else { return }
-        
         currentNumber = 0
         
         for _ in 0..<cardsCount {
@@ -79,29 +85,45 @@ public class SwipeCardsView: UIView {
             }
         }
     }
+    
+    /** Animatable appearing of new view.*/
+    fileprivate func present(view: UIView, animate: Bool, newFrame: CGRect) {
+        
+        // hide view
+        view.alpha = 0
+        view.frame = newFrame
+        view.transform = view.transform.scaledBy(x: 0.1, y: 0.1)
+        
+        view.frame.origin.x = (newFrame.width + newFrame.origin.x) * 0.6
+        view.frame.origin.y = (newFrame.height + newFrame.origin.y) * 0.6
+        view.autoresizingMask = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleHeight, .flexibleWidth]
+        
+        UIView.animate(withDuration: 0.5) {
+            view.alpha = 1
+            view.transform = .identity
+            view.frame = newFrame
+        }
+    }
 }
 
 extension SwipeCardsView: SwipeCardDelegate {
-    func cardSwipedLeft(_ card: SwipeCard) {
+    internal func cardSwipedLeft(_ card: SwipeCard) {
         removeSwipeCard(card)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) { [weak self] in
             self?.delegate?.swipedLeft(card.value)
             self?.loadNextCard()
         }
-        
     }
     
-    func cardSwipedRight(_ card: SwipeCard) {
+    internal func cardSwipedRight(_ card: SwipeCard) {
         removeSwipeCard(card)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) { [weak self] in
             self?.delegate?.swipedRight(card.value)
             self?.loadNextCard()
         }
-        
-//        removeSwipeCard(card)
     }
     
-    func cardTapped(_ card: SwipeCard) {
+    internal func cardTapped(_ card: SwipeCard) {
         delegate?.cardTapped("tap")
     }
 }
@@ -132,33 +154,36 @@ extension SwipeCardsView {
             let nextView = createCardView(index: currentNumber)
             
             nextView.isUserInteractionEnabled = false
-            guard let lastLoaded = loadedCards.last else { return }
-            loadedCards.append(nextView)
             
+            guard let lastLoaded = loadedCards.last else {
+                addSubview(nextView)
+                nextView.isUserInteractionEnabled = true
+                loadedCards.append(nextView)
+                return
+            }
+            loadedCards.append(nextView)
             insertSubview(nextView, belowSubview: lastLoaded)
         }
     }
     
     fileprivate func createCardView(index: Int) -> SwipeCard {
         currentNumber += 1
-        let cardView = SwipeCard(frame: self.frame)
-        cardView.delegate = self
+        let cardView = SwipeCard()
+        cardView.value = index
+        
+        self.present(view: cardView, animate: true,  newFrame: frame)
+        
+        cardView.leftOverlay = self.dataSource?.createViewForOverlay(index: index, swipe: .left, with: self.frame)
+        cardView.rightOverlay = self.dataSource?.createViewForOverlay(index: index, swipe: .right, with: self.frame)
         
         guard let nextView = dataSource?.createViewForCard(index: index, with: self.frame) else {
             print(#line, "no such view")
             return cardView
         }
-        cardView.addSubview(nextView)
         nextView.autoresizingMask = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleHeight, .flexibleWidth]
-
-        cardView.leftOverlay = self.dataSource?.createViewForOverlay(index: index, swipe: .left, with: cardView.frame)
-        cardView.rightOverlay = self.dataSource?.createViewForOverlay(index: index, swipe: .right, with: cardView.frame)
-        
+        cardView.delegate = self
+        cardView.addSubview(nextView)
         cardView.configureOverlays()
-        cardView.autoresizingMask = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleHeight, .flexibleWidth]
-        
-        cardView.value = index
-        
         return cardView
     }
 }

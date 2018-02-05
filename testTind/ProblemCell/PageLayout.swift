@@ -20,25 +20,31 @@ public class PageLayout: UICollectionViewFlowLayout {
         
         var firstAttribute: UICollectionViewLayoutAttributes = layoutAttributes[0]
         
+        if layoutAttributes.count == 1 {
+            if velocity.x > 0 {
+                return CGPoint(x: firstAttribute.center.x + collectionView!.bounds.size.width * 0.5, y: proposedContentOffset.y)
+            } else if velocity.x < 0 {
+                return CGPoint(x: firstAttribute.center.x - 1.5 * collectionView!.bounds.size.width , y: proposedContentOffset.y)
+            }
+        }
+        
         for attribute: UICollectionViewLayoutAttributes in layoutAttributes {
             if attribute.representedElementCategory != .cell {
                 continue
             }
-            if((velocity.x >= 0.0 && attribute.center.x > firstAttribute.center.x)) {
-                firstAttribute = attribute;
-            }else if ((velocity.x <= 0.0 && attribute.center.x > firstAttribute.center.x)) {
+            if velocity.x > 0.0 && attribute.center.x > firstAttribute.center.x {
+                firstAttribute = attribute
+            }else if ((velocity.x < 0.0 && attribute.center.x > firstAttribute.center.x)) {
+                break
+            } else if velocity.x == 0  && attribute.center.x == firstAttribute.center.x && proposedContentOffset.x > attribute.center.x {
+                firstAttribute = attribute
+                break
+            } else if velocity.x == 0  && attribute.center.x > firstAttribute.center.x && proposedContentOffset.x < attribute.center.x {
+                firstAttribute = attribute
                 break
             }
-            
         }
-        
-        if layoutAttributes.count == 1 {
-            if velocity.x > 0 {
-                return CGPoint(x: firstAttribute.center.x + collectionView!.bounds.size.width * 0.5, y: proposedContentOffset.y)
-            } else if (velocity.x < 0) {
-                return CGPoint(x: firstAttribute.center.x - 1.5 * collectionView!.bounds.size.width , y: proposedContentOffset.y)
-            }
-        }
+    
         return CGPoint(x: firstAttribute.center.x - collectionView!.bounds.size.width * 0.5, y: proposedContentOffset.y)
     }
 }
