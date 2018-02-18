@@ -7,26 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		045A4A142021CC7E00D08C00 /* PageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A4A132021CC7E00D08C00 /* PageLayout.swift */; };
+		044C4022203337B900B77A4E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C4014203337B900B77A4E /* Utilities.swift */; };
+		044C4023203337B900B77A4E /* AnimatableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C4015203337B900B77A4E /* AnimatableImageView.swift */; };
+		044C4025203337B900B77A4E /* ImageViewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044C4019203337B900B77A4E /* ImageViewerController.xib */; };
+		044C4026203337B900B77A4E /* ImageViewerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C401A203337B900B77A4E /* ImageViewerConfiguration.swift */; };
+		044C4027203337B900B77A4E /* ImageViewerTransitioningHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C401C203337B900B77A4E /* ImageViewerTransitioningHandler.swift */; };
+		044C4028203337B900B77A4E /* ImageViewerDismissalInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C401D203337B900B77A4E /* ImageViewerDismissalInteractor.swift */; };
+		044C4029203337B900B77A4E /* ImageViewerPresentationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C401E203337B900B77A4E /* ImageViewerPresentationTransition.swift */; };
+		044C402A203337B900B77A4E /* ImageViewerDismissalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C401F203337B900B77A4E /* ImageViewerDismissalTransition.swift */; };
+		044C402B203337B900B77A4E /* ImageViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C4020203337B900B77A4E /* ImageViewerController.swift */; };
+		045A4A142021CC7E00D08C00 /* SWPageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A4A132021CC7E00D08C00 /* SWPageLayout.swift */; };
+		0485120B202DC8AE0058E3B0 /* SWImageCardForProblemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485120A202DC8AE0058E3B0 /* SWImageCardForProblemCell.swift */; };
 		048541B120211A44008E6CCA /* SVSwipeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048541B020211A44008E6CCA /* SVSwipeCardsView.swift */; };
 		048541B320211A4F008E6CCA /* SVSwipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048541B220211A4F008E6CCA /* SVSwipeCard.swift */; };
-		048955372020DBEA00D9D1A5 /* ProblemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048955362020DBEA00D9D1A5 /* ProblemCell.swift */; };
-		04CD3CE1202614D0006B0127 /* ImageAnimateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD3CE0202614D0006B0127 /* ImageAnimateDelegate.swift */; };
+		048955372020DBEA00D9D1A5 /* SWProblemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048955362020DBEA00D9D1A5 /* SWProblemCell.swift */; };
+		04E4589F2030C8B60090BFF7 /* SWScaleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4589E2030C8B60090BFF7 /* SWScaleTransition.swift */; };
+		04E458A32030CAF90090BFF7 /* SWMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E458A22030CAF90090BFF7 /* SWMapViewController.swift */; };
+		04E458A92030D2E20090BFF7 /* SWMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E458A82030D2E20090BFF7 /* SWMapView.swift */; };
+		04EAAC292031DA0000115ECA /* ColorHexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EAAC282031DA0000115ECA /* ColorHexExtension.swift */; };
 		0AFE964620108E8A00198B51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE964520108E8A00198B51 /* AppDelegate.swift */; };
-		0AFE964820108E8A00198B51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE964720108E8A00198B51 /* ViewController.swift */; };
+		0AFE964820108E8A00198B51 /* SWCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE964720108E8A00198B51 /* SWCardController.swift */; };
 		0AFE964D20108E8A00198B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE964C20108E8A00198B51 /* Assets.xcassets */; };
 		0AFE965020108E8A00198B51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE964E20108E8A00198B51 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		045A4A132021CC7E00D08C00 /* PageLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageLayout.swift; sourceTree = "<group>"; };
+		044C4014203337B900B77A4E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		044C4015203337B900B77A4E /* AnimatableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableImageView.swift; sourceTree = "<group>"; };
+		044C4019203337B900B77A4E /* ImageViewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewerController.xib; sourceTree = "<group>"; };
+		044C401A203337B900B77A4E /* ImageViewerConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerConfiguration.swift; sourceTree = "<group>"; };
+		044C401C203337B900B77A4E /* ImageViewerTransitioningHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerTransitioningHandler.swift; sourceTree = "<group>"; };
+		044C401D203337B900B77A4E /* ImageViewerDismissalInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerDismissalInteractor.swift; sourceTree = "<group>"; };
+		044C401E203337B900B77A4E /* ImageViewerPresentationTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerPresentationTransition.swift; sourceTree = "<group>"; };
+		044C401F203337B900B77A4E /* ImageViewerDismissalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerDismissalTransition.swift; sourceTree = "<group>"; };
+		044C4020203337B900B77A4E /* ImageViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerController.swift; sourceTree = "<group>"; };
+		045A4A132021CC7E00D08C00 /* SWPageLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWPageLayout.swift; sourceTree = "<group>"; };
+		0485120A202DC8AE0058E3B0 /* SWImageCardForProblemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWImageCardForProblemCell.swift; sourceTree = "<group>"; };
 		048541B020211A44008E6CCA /* SVSwipeCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVSwipeCardsView.swift; sourceTree = "<group>"; };
 		048541B220211A4F008E6CCA /* SVSwipeCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVSwipeCard.swift; sourceTree = "<group>"; };
-		048955362020DBEA00D9D1A5 /* ProblemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemCell.swift; sourceTree = "<group>"; };
-		04CD3CE0202614D0006B0127 /* ImageAnimateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnimateDelegate.swift; sourceTree = "<group>"; };
+		048955362020DBEA00D9D1A5 /* SWProblemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWProblemCell.swift; sourceTree = "<group>"; };
+		04E4589E2030C8B60090BFF7 /* SWScaleTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWScaleTransition.swift; sourceTree = "<group>"; };
+		04E458A22030CAF90090BFF7 /* SWMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWMapViewController.swift; sourceTree = "<group>"; };
+		04E458A82030D2E20090BFF7 /* SWMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWMapView.swift; sourceTree = "<group>"; };
+		04EAAC282031DA0000115ECA /* ColorHexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHexExtension.swift; sourceTree = "<group>"; };
 		0AFE964220108E8A00198B51 /* testTind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testTind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AFE964520108E8A00198B51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AFE964720108E8A00198B51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0AFE964720108E8A00198B51 /* SWCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCardController.swift; sourceTree = "<group>"; };
 		0AFE964C20108E8A00198B51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AFE964F20108E8A00198B51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AFE965120108E8A00198B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,14 +69,84 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044C4013203337B900B77A4E /* FullScreenImage */ = {
+			isa = PBXGroup;
+			children = (
+				044C4014203337B900B77A4E /* Utilities.swift */,
+				044C4015203337B900B77A4E /* AnimatableImageView.swift */,
+				044C4017203337B900B77A4E /* Resources */,
+				044C401A203337B900B77A4E /* ImageViewerConfiguration.swift */,
+				044C401B203337B900B77A4E /* Transitions */,
+				044C4020203337B900B77A4E /* ImageViewerController.swift */,
+			);
+			path = FullScreenImage;
+			sourceTree = "<group>";
+		};
+		044C4017203337B900B77A4E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				044C4019203337B900B77A4E /* ImageViewerController.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		044C401B203337B900B77A4E /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				044C401C203337B900B77A4E /* ImageViewerTransitioningHandler.swift */,
+				044C401D203337B900B77A4E /* ImageViewerDismissalInteractor.swift */,
+				044C401E203337B900B77A4E /* ImageViewerPresentationTransition.swift */,
+				044C401F203337B900B77A4E /* ImageViewerDismissalTransition.swift */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
 		04CD3CDF20261490006B0127 /* ProblemCell */ = {
 			isa = PBXGroup;
 			children = (
-				045A4A132021CC7E00D08C00 /* PageLayout.swift */,
-				048955362020DBEA00D9D1A5 /* ProblemCell.swift */,
-				04CD3CE0202614D0006B0127 /* ImageAnimateDelegate.swift */,
+				04E458A72030D2A80090BFF7 /* Maps */,
+				04E458A52030D21E0090BFF7 /* Problems */,
 			);
 			path = ProblemCell;
+			sourceTree = "<group>";
+		};
+		04E458A42030D1600090BFF7 /* ImageCollection */ = {
+			isa = PBXGroup;
+			children = (
+				044C4013203337B900B77A4E /* FullScreenImage */,
+				045A4A132021CC7E00D08C00 /* SWPageLayout.swift */,
+				0485120A202DC8AE0058E3B0 /* SWImageCardForProblemCell.swift */,
+			);
+			path = ImageCollection;
+			sourceTree = "<group>";
+		};
+		04E458A52030D21E0090BFF7 /* Problems */ = {
+			isa = PBXGroup;
+			children = (
+				04E458A62030D27C0090BFF7 /* CustomTransition */,
+				0AFE964720108E8A00198B51 /* SWCardController.swift */,
+				048955362020DBEA00D9D1A5 /* SWProblemCell.swift */,
+				04E458A42030D1600090BFF7 /* ImageCollection */,
+				0AFE965820108F6000198B51 /* TinderView */,
+			);
+			path = Problems;
+			sourceTree = "<group>";
+		};
+		04E458A62030D27C0090BFF7 /* CustomTransition */ = {
+			isa = PBXGroup;
+			children = (
+				04E4589E2030C8B60090BFF7 /* SWScaleTransition.swift */,
+			);
+			path = CustomTransition;
+			sourceTree = "<group>";
+		};
+		04E458A72030D2A80090BFF7 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				04E458A22030CAF90090BFF7 /* SWMapViewController.swift */,
+				04E458A82030D2E20090BFF7 /* SWMapView.swift */,
+			);
+			path = Maps;
 			sourceTree = "<group>";
 		};
 		0AFE963920108E8A00198B51 = {
@@ -73,10 +169,9 @@
 			isa = PBXGroup;
 			children = (
 				04CD3CDF20261490006B0127 /* ProblemCell */,
-				0AFE965820108F6000198B51 /* TinderView */,
-				0AFE965720108E9800198B51 /* SupportingFiles */,
-				0AFE964720108E8A00198B51 /* ViewController.swift */,
 				0AFE965120108E8A00198B51 /* Info.plist */,
+				0AFE965720108E9800198B51 /* SupportingFiles */,
+				04EAAC282031DA0000115ECA /* ColorHexExtension.swift */,
 			);
 			path = testTind;
 			sourceTree = "<group>";
@@ -161,6 +256,7 @@
 			files = (
 				0AFE965020108E8A00198B51 /* LaunchScreen.storyboard in Resources */,
 				0AFE964D20108E8A00198B51 /* Assets.xcassets in Resources */,
+				044C4025203337B900B77A4E /* ImageViewerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,13 +267,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				045A4A142021CC7E00D08C00 /* PageLayout.swift in Sources */,
-				048955372020DBEA00D9D1A5 /* ProblemCell.swift in Sources */,
+				044C4028203337B900B77A4E /* ImageViewerDismissalInteractor.swift in Sources */,
+				04E4589F2030C8B60090BFF7 /* SWScaleTransition.swift in Sources */,
+				044C4029203337B900B77A4E /* ImageViewerPresentationTransition.swift in Sources */,
+				045A4A142021CC7E00D08C00 /* SWPageLayout.swift in Sources */,
+				044C4023203337B900B77A4E /* AnimatableImageView.swift in Sources */,
+				048955372020DBEA00D9D1A5 /* SWProblemCell.swift in Sources */,
+				04E458A92030D2E20090BFF7 /* SWMapView.swift in Sources */,
+				044C402B203337B900B77A4E /* ImageViewerController.swift in Sources */,
+				044C4022203337B900B77A4E /* Utilities.swift in Sources */,
+				04E458A32030CAF90090BFF7 /* SWMapViewController.swift in Sources */,
 				048541B120211A44008E6CCA /* SVSwipeCardsView.swift in Sources */,
-				04CD3CE1202614D0006B0127 /* ImageAnimateDelegate.swift in Sources */,
+				044C402A203337B900B77A4E /* ImageViewerDismissalTransition.swift in Sources */,
+				0485120B202DC8AE0058E3B0 /* SWImageCardForProblemCell.swift in Sources */,
+				044C4026203337B900B77A4E /* ImageViewerConfiguration.swift in Sources */,
 				048541B320211A4F008E6CCA /* SVSwipeCard.swift in Sources */,
-				0AFE964820108E8A00198B51 /* ViewController.swift in Sources */,
+				044C4027203337B900B77A4E /* ImageViewerTransitioningHandler.swift in Sources */,
+				0AFE964820108E8A00198B51 /* SWCardController.swift in Sources */,
 				0AFE964620108E8A00198B51 /* AppDelegate.swift in Sources */,
+				04EAAC292031DA0000115ECA /* ColorHexExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

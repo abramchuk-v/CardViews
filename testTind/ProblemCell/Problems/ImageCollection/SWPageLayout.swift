@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class PageLayout: UICollectionViewFlowLayout {
+public class SWPageLayout: UICollectionViewFlowLayout {
     
     override public func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         
@@ -28,18 +28,33 @@ public class PageLayout: UICollectionViewFlowLayout {
             }
         }
         
+        let collectionViewRect = CGRect(x: (collectionView?.contentOffset.x)!, y: (collectionView?.contentOffset.y)!,
+                                        width: (collectionView?.bounds.width)!, height: (collectionView?.bounds.height)!)
+        
         for attribute: UICollectionViewLayoutAttributes in layoutAttributes {
             if attribute.representedElementCategory != .cell {
                 continue
             }
             if velocity.x > 0.0 && attribute.center.x > firstAttribute.center.x {
                 firstAttribute = attribute
-            }else if ((velocity.x < 0.0 && attribute.center.x > firstAttribute.center.x)) {
+            } else if ((velocity.x < 0.0 && attribute.center.x > firstAttribute.center.x)) {
                 break
-            } else if velocity.x == 0  && attribute.center.x == firstAttribute.center.x && proposedContentOffset.x > attribute.center.x {
-                firstAttribute = attribute
-                break
-            } else if velocity.x == 0  && attribute.center.x > firstAttribute.center.x && proposedContentOffset.x < attribute.center.x {
+            } else if velocity.x == 0
+                &&
+                (attribute.frame.origin.x + attribute.frame.width * 0.9 > collectionViewRect.origin.x
+                &&
+                attribute.frame.origin.x + attribute.frame.width * 0.9 < collectionViewRect.origin.x + collectionViewRect.width
+                &&
+                proposedContentOffset.x > attribute.center.x)
+                
+                ||
+                
+                (attribute.frame.origin.x + attribute.frame.width * 0.1 > collectionViewRect.origin.x
+                &&
+                attribute.frame.origin.x + attribute.frame.width * 0.1 < collectionViewRect.origin.x + collectionViewRect.width
+                &&
+                proposedContentOffset.x < attribute.center.x) {
+                
                 firstAttribute = attribute
                 break
             }

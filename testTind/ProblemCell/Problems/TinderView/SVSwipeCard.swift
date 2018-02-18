@@ -50,8 +50,14 @@ class SwipeCard: UIView {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragEvent(gesture:)))
         self.addGestureRecognizer(panGesture)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapEvent(gesture:)))
-        self.addGestureRecognizer(tapGesture)
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.76
+        self.layer.shadowOffset = CGSize(width: -8.0, height: 6.0)
+        self.layer.shadowRadius = 10
+    
+        
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapEvent(gesture:)))
+//        self.addGestureRecognizer(tapGesture)
     }
     
     required init?(coder aDecoder: NSCoder) {

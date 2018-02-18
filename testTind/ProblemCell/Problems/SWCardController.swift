@@ -8,12 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SWCardController: UIViewController {
     
+    
+    private let transition = SWScaleTransition()
     private var cardView: SwipeCardsView!
-    private var animatableImageDelegate: ImageAnimateDelegate?
-    
     private var pageControl: UIPageControl?
+    
+    private var animatableRealImageView: SWImageAnimationDelegate?
+    
+    private var mapAnimationCenter = CGPoint.zero
+    
     
     var images: [UIImage] = [
                              UIImage(named: "\(0)")!,
@@ -39,7 +44,7 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = .white
         
-        let frame = CGRect(x: 0, y: 20, width: self.view.frame.width, height: self.view.frame.height - 40)
+        let frame = CGRect(x: 0, y: 10, width: self.view.frame.width, height: self.view.frame.height - 30)
         cardView = SwipeCardsView(frame: frame)
         cardView.bufferSize = 1
         cardView.delegate = self
@@ -60,7 +65,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: SwipeCardViewDelegate {
+extension SWCardController: SwipeCardViewDelegate {
     func nearOfEnd() {
         images += images1
     }
@@ -81,7 +86,7 @@ extension ViewController: SwipeCardViewDelegate {
         print("End")
     }
 }
-extension ViewController: SwipeCardViewDataSource {
+extension SWCardController: SwipeCardViewDataSource {
     func createViewForOverlay(index: Int, swipe: SwipeMode, with frame: CGRect) -> UIView {
         let label = UILabel()
         label.frame.size = CGSize(width: 100, height: 100)
@@ -102,28 +107,28 @@ extension ViewController: SwipeCardViewDataSource {
     }
     
     func createViewForCard(index: Int, with frame: CGRect) -> UIView {
-        let cell = ProblemCell(frame: CGRect(x: 30, y: 20, width: frame.width - 60, height: frame.height - 40))
+        let cell = SWProblemCell(frame: CGRect(x: 30, y: 20, width: frame.width - 60, height: frame.height - 40))
         cell.textView.text = "\(index)"
         cell.collectionView.dataSource = self
         cell.collectionView.delegate = self
         pageControl = cell.pageControl
-        animatableImageDelegate = cell
+        cell.mapViewDelegate = self
+        animatableRealImageView = cell
         return cell
     }
     
 }
 
 
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension SWCardController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         pageControl?.numberOfPages = images1.count
         return images1.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ident", for: indexPath) as! CustomCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ident", for: indexPath) as! SWImageCardForProblemCell
         cell.imageView.image = images1[indexPath.row]
-        cell.animateDelegate = animatableImageDelegate
         return cell
     }
     
@@ -134,16 +139,64 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.frame.size
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let configuration = ImageViewerConfiguration { config in
+            
+            let imageW = (collectionView.cellForItem(at: indexPath) as! SWImageCardForProblemCell).imageView
+            
+            config.imageView = imageW
+            ///////-----------FOR SOME IMAGE VIEW----------//////
+//            config.imageBlock = { loadBlock in
+//                print("1")
+//                
+//                DispatchQueue.global(qos: .userInitiated).async {
+//                    let urlContents = try? Data(contentsOf: URL(string: "https://i.stack.imgur.com/GsDIl.jpg")!)
+//                    let image = UIImage(data: urlContents!)
+//                    loadBlock(image)
+//                }
+//            }
+        }
+        
+        
+        let imageViewerController = ImageViewerController(configuration: configuration)
+        imageViewerController.animatableRealImageViewDelegate = self.animatableRealImageView
+        
+        present(imageViewerController, animated: true)
+    }
+    
 }
 
-//extension ViewController: ImageAnimateDelegate {
-//    func prepareImageIncreasing() {
-//        <#code#>
-//    }
-//
-//    func prepareImageReducing() {
-//        <#code#>
-//    }
-//}
+extension SWCardController: MapViewTapDelegate {
+    func didTappedMapView(center: CGPoint) {
+        
+        // pass here some data
+        
+        let vc = SWMapViewController(string: "ssssssss")
+        
+        
+        vc.transitioningDelegate = self
+        vc.modalPresentationStyle = .overCurrentContext
+        self.mapAnimationCenter = center
+        self.present(vc, animated: true, completion: nil)
+    }
+}
+
+extension SWCardController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        transition.startingPoint = mapAnimationCenter
+        transition.bubbleColor = UIColor(hexString: "#F8F5EE")
+        return transition
+    }
+    
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .dismiss
+        transition.startingPoint = mapAnimationCenter
+        transition.bubbleColor = UIColor(hexString: "#F8F5EE")
+        return transition
+    }
+}
 
 
