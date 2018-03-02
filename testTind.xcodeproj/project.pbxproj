@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0405B04F204991B70007BF0D /* SWProblemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405B04E204991B70007BF0D /* SWProblemObject.swift */; };
+		0405B051204995A10007BF0D /* SWProblemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405B050204995A10007BF0D /* SWProblemManager.swift */; };
 		044C4022203337B900B77A4E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C4014203337B900B77A4E /* Utilities.swift */; };
 		044C4023203337B900B77A4E /* AnimatableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C4015203337B900B77A4E /* AnimatableImageView.swift */; };
 		044C4025203337B900B77A4E /* ImageViewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044C4019203337B900B77A4E /* ImageViewerController.xib */; };
@@ -17,21 +19,27 @@
 		044C402A203337B900B77A4E /* ImageViewerDismissalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C401F203337B900B77A4E /* ImageViewerDismissalTransition.swift */; };
 		044C402B203337B900B77A4E /* ImageViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C4020203337B900B77A4E /* ImageViewerController.swift */; };
 		045A4A142021CC7E00D08C00 /* SWPageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A4A132021CC7E00D08C00 /* SWPageLayout.swift */; };
+		047752C220401EB8001FC3A7 /* SWMarkedProblemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047752C120401EB8001FC3A7 /* SWMarkedProblemsController.swift */; };
+		047752C520401F0F001FC3A7 /* SWOwnProblemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047752C420401F0F001FC3A7 /* SWOwnProblemsController.swift */; };
 		0485120B202DC8AE0058E3B0 /* SWImageCardForProblemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485120A202DC8AE0058E3B0 /* SWImageCardForProblemCell.swift */; };
 		048541B120211A44008E6CCA /* SVSwipeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048541B020211A44008E6CCA /* SVSwipeCardsView.swift */; };
 		048541B320211A4F008E6CCA /* SVSwipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048541B220211A4F008E6CCA /* SVSwipeCard.swift */; };
 		048955372020DBEA00D9D1A5 /* SWProblemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048955362020DBEA00D9D1A5 /* SWProblemCell.swift */; };
+		04C488C92049701900C626E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C488C82049701900C626E4 /* GoogleService-Info.plist */; };
 		04E4589F2030C8B60090BFF7 /* SWScaleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4589E2030C8B60090BFF7 /* SWScaleTransition.swift */; };
 		04E458A32030CAF90090BFF7 /* SWMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E458A22030CAF90090BFF7 /* SWMapViewController.swift */; };
 		04E458A92030D2E20090BFF7 /* SWMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E458A82030D2E20090BFF7 /* SWMapView.swift */; };
 		04EAAC292031DA0000115ECA /* ColorHexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EAAC282031DA0000115ECA /* ColorHexExtension.swift */; };
 		0AFE964620108E8A00198B51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE964520108E8A00198B51 /* AppDelegate.swift */; };
-		0AFE964820108E8A00198B51 /* SWCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE964720108E8A00198B51 /* SWCardController.swift */; };
+		0AFE964820108E8A00198B51 /* SWFreshProblemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE964720108E8A00198B51 /* SWFreshProblemController.swift */; };
 		0AFE964D20108E8A00198B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE964C20108E8A00198B51 /* Assets.xcassets */; };
 		0AFE965020108E8A00198B51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE964E20108E8A00198B51 /* LaunchScreen.storyboard */; };
+		2F1CAC9E2B58B4EAF4CAA7BE /* Pods_testTind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DEB6E9E54197C7DB7507C5 /* Pods_testTind.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0405B04E204991B70007BF0D /* SWProblemObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWProblemObject.swift; sourceTree = "<group>"; };
+		0405B050204995A10007BF0D /* SWProblemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWProblemManager.swift; sourceTree = "<group>"; };
 		044C4014203337B900B77A4E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		044C4015203337B900B77A4E /* AnimatableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableImageView.swift; sourceTree = "<group>"; };
 		044C4019203337B900B77A4E /* ImageViewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewerController.xib; sourceTree = "<group>"; };
@@ -42,20 +50,26 @@
 		044C401F203337B900B77A4E /* ImageViewerDismissalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerDismissalTransition.swift; sourceTree = "<group>"; };
 		044C4020203337B900B77A4E /* ImageViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerController.swift; sourceTree = "<group>"; };
 		045A4A132021CC7E00D08C00 /* SWPageLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWPageLayout.swift; sourceTree = "<group>"; };
+		047752C120401EB8001FC3A7 /* SWMarkedProblemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWMarkedProblemsController.swift; sourceTree = "<group>"; };
+		047752C420401F0F001FC3A7 /* SWOwnProblemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWOwnProblemsController.swift; sourceTree = "<group>"; };
 		0485120A202DC8AE0058E3B0 /* SWImageCardForProblemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWImageCardForProblemCell.swift; sourceTree = "<group>"; };
 		048541B020211A44008E6CCA /* SVSwipeCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVSwipeCardsView.swift; sourceTree = "<group>"; };
 		048541B220211A4F008E6CCA /* SVSwipeCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVSwipeCard.swift; sourceTree = "<group>"; };
 		048955362020DBEA00D9D1A5 /* SWProblemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWProblemCell.swift; sourceTree = "<group>"; };
+		04C488C82049701900C626E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04E4589E2030C8B60090BFF7 /* SWScaleTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWScaleTransition.swift; sourceTree = "<group>"; };
 		04E458A22030CAF90090BFF7 /* SWMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWMapViewController.swift; sourceTree = "<group>"; };
 		04E458A82030D2E20090BFF7 /* SWMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWMapView.swift; sourceTree = "<group>"; };
 		04EAAC282031DA0000115ECA /* ColorHexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHexExtension.swift; sourceTree = "<group>"; };
 		0AFE964220108E8A00198B51 /* testTind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testTind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AFE964520108E8A00198B51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AFE964720108E8A00198B51 /* SWCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCardController.swift; sourceTree = "<group>"; };
+		0AFE964720108E8A00198B51 /* SWFreshProblemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWFreshProblemController.swift; sourceTree = "<group>"; };
 		0AFE964C20108E8A00198B51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AFE964F20108E8A00198B51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AFE965120108E8A00198B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57DEB6E9E54197C7DB7507C5 /* Pods_testTind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testTind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58848736C401339C0270CEFD /* Pods-testTind.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testTind.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testTind/Pods-testTind.debug.xcconfig"; sourceTree = "<group>"; };
+		F2FF802790AE9ACEAD51621A /* Pods-testTind.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testTind.release.xcconfig"; path = "Pods/Target Support Files/Pods-testTind/Pods-testTind.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,12 +77,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F1CAC9E2B58B4EAF4CAA7BE /* Pods_testTind.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0405B04D204991A20007BF0D /* ProblemModel */ = {
+			isa = PBXGroup;
+			children = (
+				0405B04E204991B70007BF0D /* SWProblemObject.swift */,
+				0405B050204995A10007BF0D /* SWProblemManager.swift */,
+			);
+			path = ProblemModel;
+			sourceTree = "<group>";
+		};
 		044C4013203337B900B77A4E /* FullScreenImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,43 +125,59 @@
 			path = Transitions;
 			sourceTree = "<group>";
 		};
-		04CD3CDF20261490006B0127 /* ProblemCell */ = {
+		047752C020401E67001FC3A7 /* Marked Problems */ = {
+			isa = PBXGroup;
+			children = (
+				047752C120401EB8001FC3A7 /* SWMarkedProblemsController.swift */,
+			);
+			path = "Marked Problems";
+			sourceTree = "<group>";
+		};
+		047752C320401ED3001FC3A7 /* Own Problems */ = {
+			isa = PBXGroup;
+			children = (
+				047752C420401F0F001FC3A7 /* SWOwnProblemsController.swift */,
+			);
+			path = "Own Problems";
+			sourceTree = "<group>";
+		};
+		04CD3CDF20261490006B0127 /* New Problems */ = {
 			isa = PBXGroup;
 			children = (
 				04E458A72030D2A80090BFF7 /* Maps */,
 				04E458A52030D21E0090BFF7 /* Problems */,
 			);
-			path = ProblemCell;
+			path = "New Problems";
 			sourceTree = "<group>";
 		};
-		04E458A42030D1600090BFF7 /* ImageCollection */ = {
+		04E458A42030D1600090BFF7 /* CollectionOfImages */ = {
 			isa = PBXGroup;
 			children = (
 				044C4013203337B900B77A4E /* FullScreenImage */,
 				045A4A132021CC7E00D08C00 /* SWPageLayout.swift */,
 				0485120A202DC8AE0058E3B0 /* SWImageCardForProblemCell.swift */,
 			);
-			path = ImageCollection;
+			path = CollectionOfImages;
 			sourceTree = "<group>";
 		};
 		04E458A52030D21E0090BFF7 /* Problems */ = {
 			isa = PBXGroup;
 			children = (
-				04E458A62030D27C0090BFF7 /* CustomTransition */,
-				0AFE964720108E8A00198B51 /* SWCardController.swift */,
+				0AFE965820108F6000198B51 /* CardView */,
+				0AFE964720108E8A00198B51 /* SWFreshProblemController.swift */,
 				048955362020DBEA00D9D1A5 /* SWProblemCell.swift */,
-				04E458A42030D1600090BFF7 /* ImageCollection */,
-				0AFE965820108F6000198B51 /* TinderView */,
+				04E458A62030D27C0090BFF7 /* BubbleTransactionForMap */,
+				04E458A42030D1600090BFF7 /* CollectionOfImages */,
 			);
 			path = Problems;
 			sourceTree = "<group>";
 		};
-		04E458A62030D27C0090BFF7 /* CustomTransition */ = {
+		04E458A62030D27C0090BFF7 /* BubbleTransactionForMap */ = {
 			isa = PBXGroup;
 			children = (
 				04E4589E2030C8B60090BFF7 /* SWScaleTransition.swift */,
 			);
-			path = CustomTransition;
+			path = BubbleTransactionForMap;
 			sourceTree = "<group>";
 		};
 		04E458A72030D2A80090BFF7 /* Maps */ = {
@@ -154,6 +194,8 @@
 			children = (
 				0AFE964420108E8A00198B51 /* testTind */,
 				0AFE964320108E8A00198B51 /* Products */,
+				75DF44C216FBD106A6077B9B /* Pods */,
+				7B7A42E2359456E2C1E52682 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,7 +210,10 @@
 		0AFE964420108E8A00198B51 /* testTind */ = {
 			isa = PBXGroup;
 			children = (
-				04CD3CDF20261490006B0127 /* ProblemCell */,
+				0405B04D204991A20007BF0D /* ProblemModel */,
+				047752C320401ED3001FC3A7 /* Own Problems */,
+				047752C020401E67001FC3A7 /* Marked Problems */,
+				04CD3CDF20261490006B0127 /* New Problems */,
 				0AFE965120108E8A00198B51 /* Info.plist */,
 				0AFE965720108E9800198B51 /* SupportingFiles */,
 				04EAAC282031DA0000115ECA /* ColorHexExtension.swift */,
@@ -179,6 +224,7 @@
 		0AFE965720108E9800198B51 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				04C488C82049701900C626E4 /* GoogleService-Info.plist */,
 				0AFE964520108E8A00198B51 /* AppDelegate.swift */,
 				0AFE964C20108E8A00198B51 /* Assets.xcassets */,
 				0AFE964E20108E8A00198B51 /* LaunchScreen.storyboard */,
@@ -186,13 +232,30 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		0AFE965820108F6000198B51 /* TinderView */ = {
+		0AFE965820108F6000198B51 /* CardView */ = {
 			isa = PBXGroup;
 			children = (
 				048541B020211A44008E6CCA /* SVSwipeCardsView.swift */,
 				048541B220211A4F008E6CCA /* SVSwipeCard.swift */,
 			);
-			path = TinderView;
+			path = CardView;
+			sourceTree = "<group>";
+		};
+		75DF44C216FBD106A6077B9B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				58848736C401339C0270CEFD /* Pods-testTind.debug.xcconfig */,
+				F2FF802790AE9ACEAD51621A /* Pods-testTind.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7B7A42E2359456E2C1E52682 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57DEB6E9E54197C7DB7507C5 /* Pods_testTind.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,9 +265,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AFE965420108E8A00198B51 /* Build configuration list for PBXNativeTarget "testTind" */;
 			buildPhases = (
+				9D053EE9566A809A56372320 /* [CP] Check Pods Manifest.lock */,
 				0AFE963E20108E8A00198B51 /* Sources */,
 				0AFE963F20108E8A00198B51 /* Frameworks */,
 				0AFE964020108E8A00198B51 /* Resources */,
+				8393F66FFCEE3F786CF42B98 /* [CP] Embed Pods Frameworks */,
+				635D837AD92CEFB760F5C338 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -255,12 +321,71 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AFE965020108E8A00198B51 /* LaunchScreen.storyboard in Resources */,
+				04C488C92049701900C626E4 /* GoogleService-Info.plist in Resources */,
 				0AFE964D20108E8A00198B51 /* Assets.xcassets in Resources */,
 				044C4025203337B900B77A4E /* ImageViewerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		635D837AD92CEFB760F5C338 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-testTind/Pods-testTind-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8393F66FFCEE3F786CF42B98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-testTind/Pods-testTind-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-testTind/Pods-testTind-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D053EE9566A809A56372320 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-testTind-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0AFE963E20108E8A00198B51 /* Sources */ = {
@@ -270,11 +395,14 @@
 				044C4028203337B900B77A4E /* ImageViewerDismissalInteractor.swift in Sources */,
 				04E4589F2030C8B60090BFF7 /* SWScaleTransition.swift in Sources */,
 				044C4029203337B900B77A4E /* ImageViewerPresentationTransition.swift in Sources */,
+				047752C520401F0F001FC3A7 /* SWOwnProblemsController.swift in Sources */,
 				045A4A142021CC7E00D08C00 /* SWPageLayout.swift in Sources */,
 				044C4023203337B900B77A4E /* AnimatableImageView.swift in Sources */,
+				0405B04F204991B70007BF0D /* SWProblemObject.swift in Sources */,
 				048955372020DBEA00D9D1A5 /* SWProblemCell.swift in Sources */,
 				04E458A92030D2E20090BFF7 /* SWMapView.swift in Sources */,
 				044C402B203337B900B77A4E /* ImageViewerController.swift in Sources */,
+				047752C220401EB8001FC3A7 /* SWMarkedProblemsController.swift in Sources */,
 				044C4022203337B900B77A4E /* Utilities.swift in Sources */,
 				04E458A32030CAF90090BFF7 /* SWMapViewController.swift in Sources */,
 				048541B120211A44008E6CCA /* SVSwipeCardsView.swift in Sources */,
@@ -282,8 +410,9 @@
 				0485120B202DC8AE0058E3B0 /* SWImageCardForProblemCell.swift in Sources */,
 				044C4026203337B900B77A4E /* ImageViewerConfiguration.swift in Sources */,
 				048541B320211A4F008E6CCA /* SVSwipeCard.swift in Sources */,
+				0405B051204995A10007BF0D /* SWProblemManager.swift in Sources */,
 				044C4027203337B900B77A4E /* ImageViewerTransitioningHandler.swift in Sources */,
-				0AFE964820108E8A00198B51 /* SWCardController.swift in Sources */,
+				0AFE964820108E8A00198B51 /* SWFreshProblemController.swift in Sources */,
 				0AFE964620108E8A00198B51 /* AppDelegate.swift in Sources */,
 				04EAAC292031DA0000115ECA /* ColorHexExtension.swift in Sources */,
 			);
@@ -412,6 +541,7 @@
 		};
 		0AFE965520108E8A00198B51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58848736C401339C0270CEFD /* Pods-testTind.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -419,7 +549,7 @@
 				INFOPLIST_FILE = testTind/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = v.abr.svr.testTind;
+				PRODUCT_BUNDLE_IDENTIFIER = v.abr.svr.problem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -428,6 +558,7 @@
 		};
 		0AFE965620108E8A00198B51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2FF802790AE9ACEAD51621A /* Pods-testTind.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -435,7 +566,7 @@
 				INFOPLIST_FILE = testTind/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = v.abr.svr.testTind;
+				PRODUCT_BUNDLE_IDENTIFIER = v.abr.svr.problem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

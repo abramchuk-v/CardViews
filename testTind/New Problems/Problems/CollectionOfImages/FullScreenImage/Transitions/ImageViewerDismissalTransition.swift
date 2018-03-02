@@ -59,7 +59,8 @@ final class ImageViewerDismissalTransition: NSObject, UIViewControllerAnimatedTr
         animatableImageview.image = image
         animatableImageview.frame = fromSuperView.convert(fromImageView.frame, to: nil)
         animatableImageview.contentMode = .scaleAspectFit
-        animatableImageview.layer.cornerRadius = toImageView.layer.cornerRadius
+        
+        animatableImageview.layer.cornerRadius = fromImageView.layer.cornerRadius
         
         fromView?.isHidden = true
         fadeView.frame = containerView.bounds

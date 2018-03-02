@@ -58,6 +58,7 @@ public class SwipeCardsView: UIView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         isUserInteractionEnabled = false
+        backgroundColor = .white
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -91,17 +92,16 @@ public class SwipeCardsView: UIView {
         
         // hide view
         view.alpha = 0
+        
         view.frame = newFrame
         view.transform = view.transform.scaledBy(x: 0.1, y: 0.1)
-        
-        view.frame.origin.x = (newFrame.width + newFrame.origin.x) * 0.6
-        view.frame.origin.y = (newFrame.height + newFrame.origin.y) * 0.6
+        view.transform = view.transform.translatedBy(x: (newFrame.width + newFrame.origin.x) * 0.6,
+                                                     y: (newFrame.height + newFrame.origin.y) * 0.6)
         view.autoresizingMask = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleHeight, .flexibleWidth]
         
         UIView.animate(withDuration: 0.5) {
             view.alpha = 1
             view.transform = .identity
-            view.frame = newFrame
         }
     }
 }
@@ -125,6 +125,7 @@ extension SwipeCardsView: SwipeCardDelegate {
     
     internal func cardTapped(_ card: SwipeCard) {
         delegate?.cardTapped("tap")
+        
     }
 }
 
@@ -171,7 +172,7 @@ extension SwipeCardsView {
         let cardView = SwipeCard()
         cardView.value = index
         
-        self.present(view: cardView, animate: true,  newFrame: frame)
+        self.present(view: cardView, animate: true,  newFrame: bounds)
         
         cardView.leftOverlay = self.dataSource?.createViewForOverlay(index: index, swipe: .left, with: self.frame)
         cardView.rightOverlay = self.dataSource?.createViewForOverlay(index: index, swipe: .right, with: self.frame)
@@ -182,7 +183,16 @@ extension SwipeCardsView {
         }
         nextView.autoresizingMask = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleHeight, .flexibleWidth]
         cardView.delegate = self
+        
+//        nextView.translatesAutoresizingMaskIntoConstraints = false
+
         cardView.addSubview(nextView)
+        
+//        nextView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 10).isActive = true
+//        nextView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
+//        nextView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 30).isActive = true
+//        nextView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -30).isActive = true
+
         cardView.configureOverlays()
         return cardView
     }

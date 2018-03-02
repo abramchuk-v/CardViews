@@ -32,6 +32,7 @@ class SWMapView: UIView {
         addSubview(backButton)
 
         setMapConstraint()
+        
 
         backButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 32).isActive = true
         backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true

@@ -32,6 +32,8 @@ public final class ImageViewerController: UIViewController {
         super.viewDidLoad()
         imageView.image = configuration?.imageView?.image
         
+        imageView.layer.cornerRadius = 20
+        
         setupScrollView()
         setupGestureRecognizers()
         setupTransitions()

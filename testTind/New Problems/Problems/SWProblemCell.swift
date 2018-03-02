@@ -13,16 +13,20 @@ protocol MapViewTapDelegate {
 }
 
 class SWProblemCell: UIView, SWImageAnimationDelegate {
-    private var CORNER_RADIUS: CGFloat = 20.0
-    var mapViewDelegate: MapViewTapDelegate?
     
-    let textView: UITextView = {
-        let textView = UITextView()
+    
+    private var CORNER_RADIUS: CGFloat = 35.0
+    
+    var mapViewDelegate: MapViewTapDelegate?
+
+    let textView: UILabel = {
+        let textView = UILabel()
         textView.font = UIFont(name: "Helvetica", size: 24)
-        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        textView.numberOfLines = 0
         textView.textColor = .black
         textView.backgroundColor = .clear
-        textView.isSelectable = false
+        textView.isUserInteractionEnabled = true
+        textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
     
@@ -33,6 +37,7 @@ class SWProblemCell: UIView, SWImageAnimationDelegate {
         pageControl.backgroundColor = .clear
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .darkGray
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
         return pageControl
     }()
     
@@ -41,6 +46,11 @@ class SWProblemCell: UIView, SWImageAnimationDelegate {
         let view = UIView()
         view.layer.contents = UIImage(named: "mapView")?.cgImage
         view.backgroundColor = .clear
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.6
+        view.layer.shadowOffset = CGSize(width: -5.0, height: 7.0)
+        view.layer.shadowRadius = 10
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -51,6 +61,7 @@ class SWProblemCell: UIView, SWImageAnimationDelegate {
     private let blurView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.prominent)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
         return blurEffectView
     }()
     
@@ -59,11 +70,10 @@ class SWProblemCell: UIView, SWImageAnimationDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        setCollectionViewPosition()
-        setPageControlPosition()
-        setTextAndBlurPosition()
-        setMapViewPosition()
+    
+       
+        configCollectionView()
+        
         
         blurView.contentView.addSubview(textView)
         addSubview(collectionView)
@@ -71,12 +81,17 @@ class SWProblemCell: UIView, SWImageAnimationDelegate {
         addSubview(blurView)
         addSubview(mapView)
         
+        setCollectionViewPosition()
+        setTextAndBlurPosition()
+        setPageControlPosition()
+        setMapViewPosition()
+        
         self.backgroundColor = .clear
 
         self.layer.masksToBounds = true
         self.layer.cornerRadius = CORNER_RADIUS
         
-//        setWavyLineOfBlur()
+        corneredBlurVIew()
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(mapViewTap))
         mapView.addGestureRecognizer(gesture)
@@ -88,7 +103,7 @@ class SWProblemCell: UIView, SWImageAnimationDelegate {
     
     //MARK: - Set views positiosns.
     
-    private func setCollectionViewPosition() {
+    private func configCollectionView() {
         let collectionViewLayout: SWPageLayout = SWPageLayout()
         collectionViewLayout.itemSize = CGSize(width: frame.width, height: frame.height)
         collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -103,48 +118,64 @@ class SWProblemCell: UIView, SWImageAnimationDelegate {
         collectionView.backgroundColor = .white
         collectionView.register(SWImageCardForProblemCell.self, forCellWithReuseIdentifier: "ident")
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin]
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setCollectionViewPosition() {
+        collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
     
     private func setPageControlPosition() {
-        pageControl.frame = CGRect(x: bounds.origin.x,
-                                   y: bounds.origin.y,
-                                   width: bounds.width,
-                                   height: bounds.height * 0.05)
-        pageControl.autoresizingMask = [.flexibleTopMargin]
+        pageControl.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
     }
     
     private func setTextAndBlurPosition() {
-        blurView.frame = CGRect(x: bounds.origin.x, y: frame.height * 0.7, width: frame.width, height: frame.height * 0.3)
-        blurView.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin]
+        blurView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -3).isActive = true
+        blurView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 3).isActive = true
+        blurView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -3).isActive = true
+//        blurView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.65).isActive = true
+        blurView.heightAnchor.constraint(equalToConstant: self.bounds.height * 0.3).isActive = true
         
-        textView.frame = blurView.contentView.frame
-        textView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin, .flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin]
+        textView.bottomAnchor.constraint(lessThanOrEqualTo: blurView.bottomAnchor, constant: -10).isActive = true
+        textView.leadingAnchor.constraint(equalTo: blurView.leadingAnchor, constant: 10).isActive = true
+        textView.trailingAnchor.constraint(equalTo: blurView.trailingAnchor, constant: -10).isActive = true
+        textView.topAnchor.constraint(equalTo: blurView.topAnchor, constant: 10).isActive = true
+        
+        blurView.layoutIfNeeded()
     }
     
     private func setMapViewPosition() {
-        mapView.center = CGPoint(x: blurView.frame.width - 50, y: blurView.frame.origin.y)
-        mapView.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
-        mapView.autoresizingMask = [.flexibleRightMargin]
+        mapView.trailingAnchor.constraint(equalTo: blurView.trailingAnchor).isActive = true
+        mapView.centerYAnchor.constraint(equalTo: blurView.topAnchor).isActive = true
+        mapView.widthAnchor.constraint(equalTo: blurView.widthAnchor, multiplier: 0.23).isActive = true
+        mapView.heightAnchor.constraint(equalTo: blurView.widthAnchor, multiplier: 0.23).isActive = true
     }
     
-    /** Make top line of blurView wavy.*/
-    private func setWavyLineOfBlur() {
+    /** Make different corner raduis of blurView.*/
+    private func corneredBlurVIew() {
+        let topRadius: CGFloat = 5.0
+        let bottomRadius: CGFloat = CORNER_RADIUS - 3
+        
+        let minx = blurView.bounds.origin.x
+        let miny = blurView.bounds.origin.y
+        let maxx = blurView.bounds.width
+        let maxy = blurView.bounds.height
+        
         let path = UIBezierPath()
-        path.move(to: CGPoint(x: 0.0, y: 10.0))
-        path.addCurve(to: CGPoint(x: self.frame.width * 0.33, y: 10.0),
-                      controlPoint1: CGPoint(x: self.frame.width * 0.11, y: -20.0),
-                      controlPoint2: CGPoint(x: self.frame.width * 0.2, y: 40.0))
         
-        path.addCurve(to: CGPoint(x: self.frame.width * 0.66, y: 10),
-                      controlPoint1: CGPoint(x: self.frame.width * 0.44, y: -20.0),
-                      controlPoint2: CGPoint(x: self.frame.width * 0.5, y: 40.0))
-        path.addCurve(to: CGPoint(x: self.frame.width, y: 10),
-                      controlPoint1: CGPoint(x: self.frame.width * 0.77, y: -20.0),
-                      controlPoint2: CGPoint(x: self.frame.width * 0.8, y: 40.0))
-        
-        path.addLine(to: CGPoint(x: self.frame.width, y: self.frame.size.height))
-        path.addLine(to: CGPoint(x: 0.0, y: self.frame.size.height))
+        path.move(to: CGPoint(x: maxx - bottomRadius, y: maxy))
+        path.addLine(to: CGPoint(x: minx + bottomRadius, y: maxy))
+        path.addArc(withCenter: CGPoint(x: minx + bottomRadius, y: maxy - bottomRadius), radius: bottomRadius, startAngle: CGFloat.pi / 2, endAngle: CGFloat.pi, clockwise: true)
+        path.addLine(to: CGPoint(x: minx, y: miny + topRadius))
+        path.addArc(withCenter: CGPoint(x: minx + topRadius, y: miny + topRadius), radius: topRadius, startAngle: CGFloat.pi, endAngle: 3 * CGFloat.pi / 2, clockwise: true)
+        path.addLine(to: CGPoint(x: maxx - topRadius, y: miny))
+        path.addArc(withCenter: CGPoint(x: maxx - topRadius, y: miny + topRadius), radius: topRadius, startAngle: 3 * CGFloat.pi / 2, endAngle: 0, clockwise: true)
+        path.addLine(to: CGPoint(x: maxx, y: maxy - bottomRadius))
+        path.addArc(withCenter: CGPoint(x: maxx - bottomRadius, y: maxy - bottomRadius), radius: bottomRadius, startAngle: 0, endAngle: CGFloat.pi / 2, clockwise: true)
         
         path.close()
         
@@ -169,7 +200,6 @@ class SWProblemCell: UIView, SWImageAnimationDelegate {
         }) { (ens) in
             completionHandler()
         }
-        
     }
     
     
@@ -177,28 +207,23 @@ class SWProblemCell: UIView, SWImageAnimationDelegate {
     /** Set view to previous state(before tapping on image).*/
     func backToIdentity() {
         UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseInOut, animations: {
-
             self.transform = .identity
             self.pageControl.transform = .identity
             self.blurView.transform = .identity
-            self.mapView.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+            self.mapView.bounds = CGRect(x: 0, y: 0, width: self.blurView.frame.width * 0.3, height: self.blurView.frame.width * 0.3)
         })
     }
     
-    
-    
-    
-    
+
     //MARK: - Actions for gesture.
     
     @objc private func mapViewTap() {
         self.mapViewDelegate?.didTappedMapView(center: self.convert(mapView.center, to: nil))
     }
-    
-    
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }
 

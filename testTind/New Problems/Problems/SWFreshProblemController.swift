@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SWCardController: UIViewController {
+class SWFreshProblemController: UIViewController {
     
     
     private let transition = SWScaleTransition()
@@ -42,18 +42,39 @@ class SWCardController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
         
-        let frame = CGRect(x: 0, y: 10, width: self.view.frame.width, height: self.view.frame.height - 30)
-        cardView = SwipeCardsView(frame: frame)
-        cardView.bufferSize = 1
         cardView.delegate = self
         cardView.dataSource = self
+        cardView.bufferSize = 1
         
-        self.view.addSubview(cardView)
-        cardView.autoresizingMask = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleHeight, .flexibleWidth]
         
         cardView.reloadData()
+        
+    }
+
+    override func loadView() {
+        super.loadView()
+        self.view.backgroundColor = .white
+        cardView = SwipeCardsView()
+        cardView.translatesAutoresizingMaskIntoConstraints  = false
+        
+        
+        self.view.addSubview(cardView)
+        
+        
+        
+        if #available(iOS 11.0, *) {
+            cardView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+            cardView.bottomAnchor.constraint(equalTo: self.self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            cardView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor, constant: -16).isActive = true
+            cardView.bottomAnchor.constraint(equalTo: self.self.view.layoutMarginsGuide.bottomAnchor, constant: -16).isActive = true
+        }
+        cardView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        cardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        
+        cardView.autoresizingMask = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleHeight, .flexibleWidth]
+        self.view.layoutIfNeeded()
         
     }
 
@@ -65,8 +86,9 @@ class SWCardController: UIViewController {
 
 }
 
-extension SWCardController: SwipeCardViewDelegate {
+extension SWFreshProblemController: SwipeCardViewDelegate {
     func nearOfEnd() {
+        // here load all objects
         images += images1
     }
     
@@ -86,7 +108,7 @@ extension SWCardController: SwipeCardViewDelegate {
         print("End")
     }
 }
-extension SWCardController: SwipeCardViewDataSource {
+extension SWFreshProblemController: SwipeCardViewDataSource {
     func createViewForOverlay(index: Int, swipe: SwipeMode, with frame: CGRect) -> UIView {
         let label = UILabel()
         label.frame.size = CGSize(width: 100, height: 100)
@@ -107,20 +129,37 @@ extension SWCardController: SwipeCardViewDataSource {
     }
     
     func createViewForCard(index: Int, with frame: CGRect) -> UIView {
-        let cell = SWProblemCell(frame: CGRect(x: 30, y: 20, width: frame.width - 60, height: frame.height - 40))
+        let cell = SWProblemCell(frame: CGRect(x: 30, y: 10, width: frame.width - 60, height: frame.height - 20))
         cell.textView.text = "\(index)"
         cell.collectionView.dataSource = self
         cell.collectionView.delegate = self
         pageControl = cell.pageControl
+        
+        // Set animatable delegate to *ImageViewerController*
         cell.mapViewDelegate = self
         animatableRealImageView = cell
+        
+        
+        let attributedString = NSMutableAttributedString(string: "Самый простой\n пример текста для какого-то левлого приложения вместе с текст вью ьбудет ли он исчезать при переборе текста на определенные границы границы европы украниа я не выкупаб по российску вот так вот на на на неще пожвлуйста пару строчек придумай Влад, ладно все хватит\n\n")
+        
+        let attributes0: [NSAttributedStringKey : Any] = [
+            .font: UIFont(name: "HelveticaNeue-Bold", size: 15)!
+        ]
+        attributedString.addAttributes(attributes0, range: NSRange(location: 0, length: 13))
+        
+        let attributes2: [NSAttributedStringKey : Any] = [
+            .font: UIFont(name: "HelveticaNeue-Bold", size: 13)!
+        ]
+        attributedString.addAttributes(attributes2, range: NSRange(location: 51, length: 10))
+        
+        cell.textView.attributedText = attributedString
         return cell
     }
     
 }
 
 
-extension SWCardController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension SWFreshProblemController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         pageControl?.numberOfPages = images1.count
         return images1.count
@@ -140,6 +179,8 @@ extension SWCardController: UICollectionViewDataSource, UICollectionViewDelegate
         return collectionView.frame.size
     }
     
+    
+    /**Select item*/
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let configuration = ImageViewerConfiguration { config in
@@ -168,7 +209,7 @@ extension SWCardController: UICollectionViewDataSource, UICollectionViewDelegate
     
 }
 
-extension SWCardController: MapViewTapDelegate {
+extension SWFreshProblemController: MapViewTapDelegate {
     func didTappedMapView(center: CGPoint) {
         
         // pass here some data
@@ -183,7 +224,7 @@ extension SWCardController: MapViewTapDelegate {
     }
 }
 
-extension SWCardController: UIViewControllerTransitioningDelegate {
+extension SWFreshProblemController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionMode = .present
         transition.startingPoint = mapAnimationCenter
