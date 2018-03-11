@@ -13,15 +13,27 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+
+        let problemManager = SWFirebaseProblemManager()
+        
         
         let tabBarController = UITabBarController()
+        tabBarController.tabBar.barTintColor = .white
+        tabBarController.tabBar.layer.borderColor = UIColor.clear.cgColor
+        tabBarController.tabBar.clipsToBounds = true
         
-        let freshProblems = SWFreshProblemController()
-        let markedProblems = SWMarkedProblemsController()
+        let freshProblems = SWFreshProblemController(problemManger: problemManager)
+        
+        let markedAssembly = SWMarkedAssemly(problemManager: problemManager)
+        let navigationController = UINavigationController(rootViewController: markedAssembly.vc)
+        navigationController.hidesBarsOnSwipe = true
+        
+        
         let ownProblems = SWOwnProblemsController()
         
         let freshProblemImage = UIImage(named: "newIcon")
@@ -29,11 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let ownProblemsimage = UIImage(named: "ownIcon")
         
         freshProblems.tabBarItem = UITabBarItem(title: nil, image: freshProblemImage, tag: 0)
-        markedProblems.tabBarItem = UITabBarItem(title: nil, image: markedProblemImage, tag: 1)
+        markedAssembly.vc.tabBarItem = UITabBarItem(title: nil, image: markedProblemImage, tag: 1)
         ownProblems.tabBarItem = UITabBarItem(title: nil, image: ownProblemsimage, tag: 2)
 
         
-        tabBarController.viewControllers = [freshProblems, markedProblems, ownProblems]
+        tabBarController.viewControllers = [freshProblems, navigationController, ownProblems]
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()

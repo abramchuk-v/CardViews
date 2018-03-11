@@ -5,7 +5,7 @@ final class ImageViewerDismissalTransition: NSObject, UIViewControllerAnimatedTr
     
     fileprivate let fromImageView: UIImageView
     fileprivate var toImageView: UIImageView
-    var animatableBackImageToIdentity: SWImageAnimationDelegate?
+    weak var animatableBackImageToIdentity: SWImageAnimationDelegate?
     
     fileprivate var animatableImageview = AnimatableImageView()
     fileprivate var fromView: UIView?

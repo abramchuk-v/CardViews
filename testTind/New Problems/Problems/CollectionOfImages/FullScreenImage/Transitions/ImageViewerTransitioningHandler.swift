@@ -4,7 +4,7 @@ final class ImageViewerTransitioningHandler: NSObject {
     fileprivate let presentationTransition: ImageViewerPresentationTransition
     fileprivate let dismissalTransition: ImageViewerDismissalTransition
     
-    var imageViewAnimationHandler: SWImageAnimationDelegate? {
+    weak var imageViewAnimationHandler: SWImageAnimationDelegate? {
         didSet {
             presentationTransition.imageViewBeforePresentDelegate = imageViewAnimationHandler
             dismissalTransition.animatableBackImageToIdentity = imageViewAnimationHandler

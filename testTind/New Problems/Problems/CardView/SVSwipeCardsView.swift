@@ -135,13 +135,14 @@ extension SwipeCardsView {
         loadedCards.removeFirst()
         loadedCards.first?.isUserInteractionEnabled = true
         
-        if cardsCount! - currentNumber <= updateWhenCountElements {
-            delegate?.nearOfEnd()
-        }
-        
-        if cardsCount == 0 {
+        if cardsCount! - 1 == currentNumber {
             isUserInteractionEnabled = false
             delegate?.reachedEnd()
+            return
+        }
+        
+        if cardsCount! - currentNumber <= updateWhenCountElements {
+            delegate?.nearOfEnd()
         }
     }
     
@@ -177,7 +178,7 @@ extension SwipeCardsView {
         cardView.leftOverlay = self.dataSource?.createViewForOverlay(index: index, swipe: .left, with: self.frame)
         cardView.rightOverlay = self.dataSource?.createViewForOverlay(index: index, swipe: .right, with: self.frame)
         
-        guard let nextView = dataSource?.createViewForCard(index: index, with: self.frame) else {
+        guard let nextView = dataSource?.createViewForCard(index: index, with: self.bounds) else {
             print(#line, "no such view")
             return cardView
         }

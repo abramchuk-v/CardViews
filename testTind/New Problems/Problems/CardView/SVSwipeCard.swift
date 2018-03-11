@@ -50,14 +50,11 @@ class SwipeCard: UIView {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragEvent(gesture:)))
         self.addGestureRecognizer(panGesture)
         
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.76
-        self.layer.shadowOffset = CGSize(width: -8.0, height: 6.0)
-        self.layer.shadowRadius = 10
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.layer.shadowOpacity = 0.76
+//        self.layer.shadowOffset = CGSize(width: -6.0, height: 3.0)
+//        self.layer.shadowRadius = 7
     
-        
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapEvent(gesture:)))
-//        self.addGestureRecognizer(tapGesture)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -88,14 +85,15 @@ class SwipeCard: UIView {
             let rStrength = min(xFromCenter / self.rotationStrength, rotationMax)
             let rAngle = self.rotationAngle * rStrength
             
-            let scale = min(1 - fabs(rStrength) / self.scaleStrength, self.scaleMax)
+            
             self.center = CGPoint(x: self.originalPoint.x + xFromCenter, y: self.originalPoint.y + yFromCenter)
             let transform = CGAffineTransform(rotationAngle: rAngle)
+            let scale = min(1 - fabs(rStrength) / self.scaleStrength, self.scaleMax)
             let scaleTransform = transform.scaledBy(x: scale, y: scale)
             
             // can be some problems with animation, this block is called very often
             UIView.animate(withDuration: 0.05, animations: {
-                self.transform = scaleTransform
+                self.transform = transform
             })
             self.updateOverlay(xFromCenter)
             break

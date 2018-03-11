@@ -2,7 +2,7 @@ import UIKit
 
 final class ImageViewerPresentationTransition: NSObject, UIViewControllerAnimatedTransitioning {
     private let fromImageView: UIImageView
-    var imageViewBeforePresentDelegate: SWImageAnimationDelegate?
+    weak var imageViewBeforePresentDelegate: SWImageAnimationDelegate?
     
     init(fromImageView: UIImageView) {
         self.fromImageView = fromImageView

@@ -9,7 +9,7 @@ public final class ImageViewerController: UIViewController {
     fileprivate var transitionHandler: ImageViewerTransitioningHandler?
     fileprivate let configuration: ImageViewerConfiguration?
     
-    var animatableRealImageViewDelegate: SWImageAnimationDelegate?
+    weak var animatableRealImageViewDelegate: SWImageAnimationDelegate?
     
     public override var prefersStatusBarHidden: Bool {
         return true

@@ -7,5 +7,6 @@ target 'testTind' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'SDWebImage', '~> 4.0'
 
 end

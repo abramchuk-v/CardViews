@@ -8,20 +8,110 @@
 
 import Foundation
 import Firebase
+
 protocol SWProblemManager {
-    func getProblems() -> [SWProblemObject]
+    func getNewProblems(comletionHandler: @escaping ([SWProblemObject])->())
+    func getMarkedProblems(comletionHandler: @escaping ([SWProblemObject])->())
 }
 
 class SWFirebaseProblemManager: SWProblemManager {
     
-    private var countOfRequest: Int = 0
-    private var sizeOfStep: Int = 10
     
-    func getProblems() -> [SWProblemObject] {
-        let arrOfProblems = [SWProblemObject]()
+    
+    private var previousRequest: Int?
+    private var sizeOfStep: Int = 5
+    private var isRepeatPart = false
+    
+    func getNewProblems(comletionHandler: @escaping ([SWProblemObject]) -> ()) {
         let reference = Database.database().reference().child("Problems").child("New")
-//        reference.setValue("asf")
         
+        if let prevValue = previousRequest {
+            reference
+                .queryOrdered(byChild: "timestamp")
+                .queryStarting(atValue: prevValue)
+                .queryLimited(toFirst: UInt(sizeOfStep))
+                .observe(.value) { (snapshot) in
+                    
+                    self.fillProblemArray(with: snapshot, comletionHandler: comletionHandler)
+            }
+            isRepeatPart = true
+            
+        } else {
+            reference
+                .queryOrdered(byChild: "timestamp")
+                .queryLimited(toFirst: UInt(sizeOfStep) )
+                .observe(.value) { (snapshot) in
+                
+                    self.fillProblemArray(with: snapshot, comletionHandler: comletionHandler)
+//                    self.getNewProblems(comletionHandler: comletionHandler)
+            }
+        }
+    }
+    
+    
+    func getMarkedProblems(comletionHandler: @escaping([SWProblemObject]) -> ()) {
+        let reference = Database.database().reference().child("Problems").child("New")
+        
+        if let prevValue = previousRequest {
+            reference
+                .queryOrdered(byChild: "timestamp")
+                .queryStarting(atValue: prevValue)
+                .queryLimited(toFirst: UInt(sizeOfStep))
+                .observe(.value) { (snapshot) in
+                    
+                    self.fillProblemArray(with: snapshot, comletionHandler: comletionHandler)
+            }
+            isRepeatPart = true
+            
+        } else {
+            reference
+                .queryOrdered(byChild: "timestamp")
+                .queryLimited(toFirst: UInt(sizeOfStep) )
+                .observe(.value) { (snapshot) in
+                    
+                    self.fillProblemArray(with: snapshot, comletionHandler: comletionHandler)
+            }
+        }
+    }
+    
+    
+    private func fillProblemArray(with snapshot: DataSnapshot, comletionHandler: @escaping ([SWProblemObject])->()) {
+        var arrOfProblems = [SWProblemObject]()
+        if snapshot.value != nil {
+            
+            let imageGroup = DispatchGroup()
+            let enumerator = snapshot.children
+            
+            while let rest = enumerator.nextObject() as? DataSnapshot {
+                if isRepeatPart {
+                    isRepeatPart = false
+                    continue
+                }
+                DispatchQueue.global(qos: .userInitiated).async(group: imageGroup) {
+                    if let problem = rest.value as? [String: Any],
+                        let imagesURL = problem["images"] as? [String] {
+                        let imagesData = imagesURL.flatMap {try? Data(contentsOf: URL(string: $0)!)}
+                        arrOfProblems.append(SWProblemObject(images: imagesData,
+                                                             shortName: problem["shortName"] as? String ?? "--",
+                                                             views: problem["views"] as? Int ?? 0,
+                                                             fullDescription: problem["fullDescription"] as? String ?? "--"
+                        ))
+                        
+                    }
+                }
+                self.previousRequest = (rest.value as! [String: Any])["timestamp"] as? Int
+            }
+            
+            imageGroup.notify(queue: .main, execute: {
+                arrOfProblems.map{ print($0.shortName)}
+                comletionHandler(arrOfProblems)
+            })
+        }
+    }
+}
+
+
+////////////ADD///////////////
 //        let values = ["shortName": "Problem 13",
 //                      "timestamp": ServerValue.timestamp(),
 //                      "fullDescription" : "To enabln getProblems() -> [SWProblemObject] {: -FIRAnalytics asdg 90usd iuasn knjasjk jksk",
@@ -50,29 +140,4 @@ class SWFirebaseProblemManager: SWProblemManager {
 //            }
 //
 //        }
-        
-        //////////////////////////asfasf/////////
-        
-//        reference
-//            .queryOrdered(byChild: "timestamp")
-//            .queryLimited(toFirst: 5)
-//            .observe(.value) { (snapshot) in
-//                let arr = snapshot.value as? [String: [String: Any]]
-//                print(arr!["-L6bK7mhY-fz2rkLiS9X"])
-//
-//
-//                reference
-//                    .queryOrdered(byChild: "timestamp")
-//                    .queryStarting(atValue: arr!["-L6bK7mhY-fz2rkLiS9X"]?["timestamp"])
-//                    .queryEnding(atValue: 1520004648611)
-//                    .observe(.value) { (snapshot) in
-//                    let arr = snapshot.value as? [String: [String: Any]]
-//                    print(arr?.count)
-//                }
-//        }
-        
-        
-        countOfRequest += 1
-        return arrOfProblems
-    }
-}
+

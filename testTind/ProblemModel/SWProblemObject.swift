@@ -9,13 +9,13 @@
 import UIKit
 
 class SWProblemObject {
-    let images: [UIImage]
+    let images: [Data]
     let shortName: String
     let views: Int
     let fullDescription: String
     
     
-    init(images: [UIImage], shortName: String, views: Int, fullDescription: String) {
+    init(images: [Data], shortName: String, views: Int, fullDescription: String) {
         self.images = images
         self.shortName = shortName
         self.views = views

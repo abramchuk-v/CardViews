@@ -19,12 +19,16 @@
 		044C402A203337B900B77A4E /* ImageViewerDismissalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C401F203337B900B77A4E /* ImageViewerDismissalTransition.swift */; };
 		044C402B203337B900B77A4E /* ImageViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C4020203337B900B77A4E /* ImageViewerController.swift */; };
 		045A4A142021CC7E00D08C00 /* SWPageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A4A132021CC7E00D08C00 /* SWPageLayout.swift */; };
+		04763C5120553AA100BB0AA4 /* SWMarkedProblemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04763C5020553AA100BB0AA4 /* SWMarkedProblemsView.swift */; };
+		04763C53205547DF00BB0AA4 /* SWMarkedAssemly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04763C52205547DF00BB0AA4 /* SWMarkedAssemly.swift */; };
+		04763C55205548B100BB0AA4 /* SWMarkedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04763C54205548B100BB0AA4 /* SWMarkedPresenter.swift */; };
 		047752C220401EB8001FC3A7 /* SWMarkedProblemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047752C120401EB8001FC3A7 /* SWMarkedProblemsController.swift */; };
 		047752C520401F0F001FC3A7 /* SWOwnProblemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047752C420401F0F001FC3A7 /* SWOwnProblemsController.swift */; };
 		0485120B202DC8AE0058E3B0 /* SWImageCardForProblemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485120A202DC8AE0058E3B0 /* SWImageCardForProblemCell.swift */; };
 		048541B120211A44008E6CCA /* SVSwipeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048541B020211A44008E6CCA /* SVSwipeCardsView.swift */; };
 		048541B320211A4F008E6CCA /* SVSwipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048541B220211A4F008E6CCA /* SVSwipeCard.swift */; };
 		048955372020DBEA00D9D1A5 /* SWProblemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048955362020DBEA00D9D1A5 /* SWProblemCell.swift */; };
+		04BCAE212055558F00CCF1C5 /* SWMarkedProblemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAE202055558F00CCF1C5 /* SWMarkedProblemCell.swift */; };
 		04C488C92049701900C626E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C488C82049701900C626E4 /* GoogleService-Info.plist */; };
 		04E4589F2030C8B60090BFF7 /* SWScaleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4589E2030C8B60090BFF7 /* SWScaleTransition.swift */; };
 		04E458A32030CAF90090BFF7 /* SWMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E458A22030CAF90090BFF7 /* SWMapViewController.swift */; };
@@ -50,12 +54,16 @@
 		044C401F203337B900B77A4E /* ImageViewerDismissalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerDismissalTransition.swift; sourceTree = "<group>"; };
 		044C4020203337B900B77A4E /* ImageViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerController.swift; sourceTree = "<group>"; };
 		045A4A132021CC7E00D08C00 /* SWPageLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWPageLayout.swift; sourceTree = "<group>"; };
+		04763C5020553AA100BB0AA4 /* SWMarkedProblemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWMarkedProblemsView.swift; sourceTree = "<group>"; };
+		04763C52205547DF00BB0AA4 /* SWMarkedAssemly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWMarkedAssemly.swift; sourceTree = "<group>"; };
+		04763C54205548B100BB0AA4 /* SWMarkedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWMarkedPresenter.swift; sourceTree = "<group>"; };
 		047752C120401EB8001FC3A7 /* SWMarkedProblemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWMarkedProblemsController.swift; sourceTree = "<group>"; };
 		047752C420401F0F001FC3A7 /* SWOwnProblemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWOwnProblemsController.swift; sourceTree = "<group>"; };
 		0485120A202DC8AE0058E3B0 /* SWImageCardForProblemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWImageCardForProblemCell.swift; sourceTree = "<group>"; };
 		048541B020211A44008E6CCA /* SVSwipeCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVSwipeCardsView.swift; sourceTree = "<group>"; };
 		048541B220211A4F008E6CCA /* SVSwipeCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVSwipeCard.swift; sourceTree = "<group>"; };
 		048955362020DBEA00D9D1A5 /* SWProblemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWProblemCell.swift; sourceTree = "<group>"; };
+		04BCAE202055558F00CCF1C5 /* SWMarkedProblemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWMarkedProblemCell.swift; sourceTree = "<group>"; };
 		04C488C82049701900C626E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04E4589E2030C8B60090BFF7 /* SWScaleTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWScaleTransition.swift; sourceTree = "<group>"; };
 		04E458A22030CAF90090BFF7 /* SWMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWMapViewController.swift; sourceTree = "<group>"; };
@@ -128,7 +136,10 @@
 		047752C020401E67001FC3A7 /* Marked Problems */ = {
 			isa = PBXGroup;
 			children = (
-				047752C120401EB8001FC3A7 /* SWMarkedProblemsController.swift */,
+				04BCAE1F20554E5F00CCF1C5 /* Presenter */,
+				04BCAE1E20554E5400CCF1C5 /* VIews */,
+				04BCAE1D20554E3A00CCF1C5 /* Controller */,
+				04763C52205547DF00BB0AA4 /* SWMarkedAssemly.swift */,
 			);
 			path = "Marked Problems";
 			sourceTree = "<group>";
@@ -139,6 +150,31 @@
 				047752C420401F0F001FC3A7 /* SWOwnProblemsController.swift */,
 			);
 			path = "Own Problems";
+			sourceTree = "<group>";
+		};
+		04BCAE1D20554E3A00CCF1C5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				047752C120401EB8001FC3A7 /* SWMarkedProblemsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04BCAE1E20554E5400CCF1C5 /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+				04763C5020553AA100BB0AA4 /* SWMarkedProblemsView.swift */,
+				04BCAE202055558F00CCF1C5 /* SWMarkedProblemCell.swift */,
+			);
+			path = VIews;
+			sourceTree = "<group>";
+		};
+		04BCAE1F20554E5F00CCF1C5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				04763C54205548B100BB0AA4 /* SWMarkedPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		04CD3CDF20261490006B0127 /* New Problems */ = {
@@ -353,12 +389,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-testTind/Pods-testTind-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -392,9 +430,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04763C53205547DF00BB0AA4 /* SWMarkedAssemly.swift in Sources */,
 				044C4028203337B900B77A4E /* ImageViewerDismissalInteractor.swift in Sources */,
 				04E4589F2030C8B60090BFF7 /* SWScaleTransition.swift in Sources */,
 				044C4029203337B900B77A4E /* ImageViewerPresentationTransition.swift in Sources */,
+				04763C55205548B100BB0AA4 /* SWMarkedPresenter.swift in Sources */,
 				047752C520401F0F001FC3A7 /* SWOwnProblemsController.swift in Sources */,
 				045A4A142021CC7E00D08C00 /* SWPageLayout.swift in Sources */,
 				044C4023203337B900B77A4E /* AnimatableImageView.swift in Sources */,
@@ -414,6 +454,8 @@
 				044C4027203337B900B77A4E /* ImageViewerTransitioningHandler.swift in Sources */,
 				0AFE964820108E8A00198B51 /* SWFreshProblemController.swift in Sources */,
 				0AFE964620108E8A00198B51 /* AppDelegate.swift in Sources */,
+				04BCAE212055558F00CCF1C5 /* SWMarkedProblemCell.swift in Sources */,
+				04763C5120553AA100BB0AA4 /* SWMarkedProblemsView.swift in Sources */,
 				04EAAC292031DA0000115ECA /* ColorHexExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,7 +594,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = v.abr.svr.problem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -569,7 +611,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = v.abr.svr.problem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

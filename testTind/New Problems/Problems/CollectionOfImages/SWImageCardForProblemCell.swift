@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SWImageAnimationDelegate {
+protocol SWImageAnimationDelegate: class {
     func prepareImageIncreasing(completionHandler: @escaping () -> Void)
     func backToIdentity()
 }
